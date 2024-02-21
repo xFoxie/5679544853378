@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background-color: #000; /* Set background color to black */
 }
 
 header {
@@ -17,7 +18,8 @@ header {
 .glass-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Make container full height */
 }
 
 .glass-card {
@@ -55,9 +57,6 @@ footer {
 /* Moving Gradient Background */
 html {
     height: 100%;
-    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
 }
 
 @keyframes gradientBG {
