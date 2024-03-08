@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-         <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Serouwu">
     <meta property="og:description" content="Studying real life catgirls!">
     <meta property="og:color" content="#7289DA">
     <meta property="og:url" content="https://seroxen.store/">
     <link rel="stylesheet" href="styles.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add your additional styles here */
+        .payment-menu {
+            display: none; /* Initially hide the payment menu */
+            /* Your styles */
+        }
+    </style>
     <title>Seroxuwu</title>
 </head>
 <body>
@@ -20,9 +24,27 @@
                 <h2>Serouwu</h2>
                 <p>Real life catgirl.</p>
                 <p>Price: $99</p>
-                <button class="buy-button">Buy Now</button>
+                <button class="buy-button" onclick="togglePaymentMenu()">Buy Now</button>
+                <div class="payment-menu" id="paymentMenu">
+                    <!-- Payment menu content (e.g., credit card form) goes here -->
+                    <input type="text" placeholder="Credit Card Number">
+                    <input type="text" placeholder="Expiry Date">
+                    <input type="text" placeholder="CVV">
+                    <button>Submit Payment</button>
+                </div>
             </div>
         </section>
     </main>
+
+    <script>
+        function togglePaymentMenu() {
+            var paymentMenu = document.getElementById('paymentMenu');
+            if (paymentMenu.style.display === 'none') {
+                paymentMenu.style.display = 'block';
+            } else {
+                paymentMenu.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
