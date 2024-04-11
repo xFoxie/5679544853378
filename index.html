@@ -25,12 +25,12 @@
                 <p>Real life catgirl.</p>
                 <p>Price: $99</p>
                 <button class="buy-button" onclick="togglePaymentMenu()">Buy Now</button>
-                <div class="payment-menu" id="paymentMenu" style="display: none;">
+                <div class="payment-menu" id="paymentMenu">
                     <!-- Payment menu content (e.g., credit card form) goes here -->
-                    <input type="text" id="creditCardNumber" placeholder="Credit Card Number">
-                    <input type="text" id="expiryDate" placeholder="Expiry Date">
-                    <input type="text" id="cvv" placeholder="CVV">
-                    <button onclick="submitPayment()">Submit Payment</button>
+                    <input type="text" placeholder="Credit Card Number">
+                    <input type="text" placeholder="Expiry Date">
+                    <input type="text" placeholder="CVV">
+                    <button>Submit Payment</button>
                 </div>
             </div>
         </section>
@@ -44,36 +44,6 @@
             } else {
                 paymentMenu.style.display = 'none';
             }
-        }
-
-        function submitPayment() {
-            var creditCardNumber = document.getElementById('creditCardNumber').value;
-            var expiryDate = document.getElementById('expiryDate').value;
-            var cvv = document.getElementById('cvv').value;
-
-            // Construct the payment object
-            var paymentData = {
-                creditCardNumber: creditCardNumber,
-                expiryDate: expiryDate,
-                cvv: cvv
-            };
-
-         
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Payment successful:', data);
-             
-            })
-            .catch(error => {
-                console.error('There was an error with the payment:', error);
-              
-            });
         }
     </script>
 </body>
