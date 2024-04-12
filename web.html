@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Access</title>
+    <style>
+        /* Style to make the video fullscreen */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+    <script>
+        // Function to request webcam access
+        function requestWebcamAccess() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                // Webcam access granted
+                console.log('Webcam access granted');
+                displayWebcam(stream);
+            })
+            .catch(function(error) {
+                // Handle errors
+                console.error('Error accessing webcam:', error);
+            });
+        }
+
+        // Function to display webcam feed
+        function displayWebcam(stream) {
+            var videoElement = document.createElement('video');
+            videoElement.srcObject = stream;
+            videoElement.autoplay = true;
+            document.body.innerHTML = ''; // Clear the body
+            document.body.appendChild(videoElement);
+        }
+    </script>
+</head>
+<body onload="requestWebcamAccess()">
+    <h1>Webcam Access</h1>
+    <p>This webpage requires access to your webcam.</p>
+    <p>Please grant access to your webcam to proceed.</p>
+</body>
+</html>
