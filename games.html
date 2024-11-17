@@ -4,20 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learn to Fly</title>
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </head>
 <body>
   <h1>Learn to Fly - SWF Viewer</h1>
-  <object 
-    type="application/x-shockwave-flash" 
-    data="learntoflymaxgamesfinalODA0.swf" 
-    width="800" 
-    height="600">
-    <param name="movie" value="learntoflymaxgamesfinalODA0.swf">
-    <param name="quality" value="high">
-    <param name="allowScriptAccess" value="always">
-    <p>
-      It seems your browser does not support Flash. Please use a Flash-enabled browser to play this game.
-    </p>
-  </object>
+  <div>
+    <object 
+      id="ruffle-player" 
+      data="learntoflymaxgamesfinalODA0.swf" 
+      width="800" 
+      height="600" 
+      type="application/x-shockwave-flash">
+    </object>
+  </div>
+  <script>
+    const ruffle = window.RufflePlayer.newest();
+    const container = document.getElementById("ruffle-player");
+    ruffle.attachTo(container);
+  </script>
 </body>
 </html>
