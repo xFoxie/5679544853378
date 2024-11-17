@@ -5,10 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learn to Fly</title>
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .game-container {
+      background: #fff;
+      border: 2px solid #ddd;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-  <h1>Learn to Fly - SWF Viewer</h1>
-  <div>
+  <h1>Learn to Fly</h1>
+  <div class="game-container">
     <object 
       id="ruffle-player" 
       data="learntoflymaxgamesfinalODA0.swf" 
@@ -16,6 +44,9 @@
       height="600" 
       type="application/x-shockwave-flash">
     </object>
+  </div>
+  <div class="footer">
+    <p>Having trouble? Make sure you're using a modern browser that supports Ruffle.</p>
   </div>
   <script>
     const ruffle = window.RufflePlayer.newest();
